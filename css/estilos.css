@@ -1,0 +1,495 @@
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Fondo estrellado */
+.stars {
+  width: 100%;
+  height: 100%;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.evento {
+  flex-shrink: 0;
+  width: 18rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.evento h3 {
+  font-weight: bold;
+  font-size: 1.125rem;
+  color: #f472b6;
+}
+
+.evento span {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.evento p {
+  margin-top: 0.5rem;
+  color: #e5e7eb;
+}
+
+.boton {
+  margin-top: 0.75rem;
+  background: #f472b6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 0.875rem;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.boton:hover {
+  background: #ec4899;
+  transform: translateY(-1px);
+}
+
+/* Controles de audio mejorados */
+.audio-player {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.boton-audio {
+  background: #f472b6;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  margin-right: 0.5rem;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.boton-audio:hover {
+  background: #ec4899;
+  transform: translateY(-1px);
+}
+
+.boton-audio.play {
+  background: #10b981;
+}
+
+.boton-audio.play:hover {
+  background: #059669;
+}
+
+.boton-audio.pause {
+  background: #f59e0b;
+}
+
+.boton-audio.pause:hover {
+  background: #d97706;
+}
+
+.boton-audio.stop {
+  background: #ef4444;
+}
+
+.boton-audio.stop:hover {
+  background: #dc2626;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.volume-icon {
+  font-size: 1rem;
+  min-width: 20px;
+}
+
+.volume-slider {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #f472b6;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #f472b6;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Modales mejorados */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(244, 114, 182, 0.1);
+  border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #f472b6;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(244, 114, 182, 0.1);
+  color: #f472b6;
+}
+
+.media-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.media-element {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Carta de amor en el footer */
+.carta-amor {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.5rem;
+}
+
+.carta-amor h3 {
+  margin: 0 0 1rem 0;
+}
+
+.carta-amor p {
+  margin: 0;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* Responsive para móviles y tablets */
+@media (max-width: 1024px) {
+  .overflow-x-auto {
+    padding-bottom: 2rem;
+  }
+  
+  .flex.space-x-8 {
+    padding: 0 1rem;
+  }
+  
+  .evento {
+    width: 16rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header responsive */
+  header {
+    padding: 2rem 1rem;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  header p {
+    font-size: 1rem;
+  }
+  
+  /* Timeline responsive */
+  .overflow-x-auto {
+    padding: 1rem 0;
+  }
+  
+  .flex.space-x-8 {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .evento {
+    width: 14rem;
+    padding: 1.25rem;
+  }
+  
+  .evento h3 {
+    font-size: 1rem;
+  }
+  
+  .evento span {
+    font-size: 0.8rem;
+  }
+  
+  .evento p {
+    font-size: 0.9rem;
+  }
+  
+  /* Modales responsive */
+  .modal {
+    padding: 0.5rem;
+  }
+  
+  .modal-content {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .media-element {
+    max-height: 60vh;
+  }
+  
+  .modal-header {
+    padding: 0.75rem 1rem;
+  }
+  
+  .modal-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Audio player responsive */
+  .audio-player {
+    padding: 0.5rem;
+    gap: 0.4rem;
+  }
+  
+  .boton-audio {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    margin-right: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  .volume-control {
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: stretch;
+  }
+  
+  .volume-icon {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  /* Footer y carta responsive */
+  footer {
+    padding: 2rem 0;
+  }
+  
+  .carta-amor {
+    padding: 1.5rem;
+    text-align: left;
+  }
+  
+  .carta-amor h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .carta-amor p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  
+  .carta-amor .text-base {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Móviles muy pequeños */
+  header h1 {
+    font-size: 1.75rem;
+  }
+  
+  header p {
+    font-size: 0.9rem;
+  }
+  
+  #contador {
+    font-size: 0.85rem;
+  }
+  
+  .evento {
+    width: 12rem;
+    padding: 1rem;
+  }
+  
+  .evento h3 {
+    font-size: 0.95rem;
+  }
+  
+  .evento span {
+    font-size: 0.75rem;
+  }
+  
+  .evento p {
+    font-size: 0.85rem;
+  }
+  
+  .boton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .audio-player {
+    padding: 0.4rem;
+  }
+  
+  .boton-audio {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .volume-icon {
+    font-size: 0.8rem;
+  }
+  
+  .modal-header h3 {
+    font-size: 1rem;
+  }
+  
+  .carta-amor {
+    padding: 1rem;
+  }
+  
+  .carta-amor h3 {
+    font-size: 1rem;
+  }
+  
+  .carta-amor p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+  
+  .carta-amor .text-base {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Móviles extra pequeños */
+  .evento {
+    width: 11rem;
+  }
+  
+  .carta-amor p {
+    font-size: 0.75rem;
+  }
+  
+  .modal-content {
+    max-width: 98vw;
+  }
+}
+
+/* Animaciones */
+.modal {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

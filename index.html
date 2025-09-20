@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0, minimum-scale=0.5">
+  <title>Nuestro Timeline de Amor 💖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Fondo estrellado -->
+  <div class="stars"></div>
+
+  <!-- Encabezado -->
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold text-pink-400 mb-2">Nuestro Cielo de Momentos 🌌</h1>
+    <p class="text-lg text-gray-300">Cada recuerdo es una estrella en nuestra constelación 💫</p>
+    <p id="contador" class="text-pink-300 font-semibold mt-3"></p>
+  </header>
+
+  <!-- Timeline -->
+  <div class="overflow-x-auto py-10">
+    <div class="flex space-x-8 px-10">
+
+      <!-- 25 marzo -->
+      <div class="evento" data-aos="fade-up">
+        <h3>📱 Nos agregamos a WhatsApp</h3>
+        <span>25/03/2024</span>
+        <p>Ese día empezó todo, hablamos sin parar desde entonces 💕</p>
+      </div>
+
+      <!-- 16 abril -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🌹 Primera cita</h3>
+        <span>16/04/2024</span>
+        <p>El inicio de algo mágico, cada minuto contigo fue perfecto.</p>
+      </div>
+
+      <!-- 18 abril -->
+      <div class="evento" data-aos="fade-up">
+        <h3>😳 Nos conocimos</h3>
+        <span>18/04/2024</span>
+        <p>Estaba muy nervioso y tímido, pero fue un día inolvidable.</p>
+      </div>
+
+      <!-- 27 abril (canción) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎶 Primera canción dedicada</h3>
+        <span>27/04/2024</span>
+        <p>Te dediqué "Contando Ovejas" de Wos 💖</p>
+        <div class="audio-player">
+          <button id="playBtn1" onclick="togglePlay('song1')" class="boton-audio play">▶️ Reproducir</button>
+          <button id="stopBtn1" onclick="stopAudio('song1')" class="boton-audio stop">⏹️ Parar</button>
+          <div class="volume-control">
+            <span class="volume-icon">🔊</span>
+            <input type="range" id="volume1" min="0" max="100" value="50" 
+                   oninput="handleVolumeInput('song1', this.value)" 
+                   onchange="changeVolume('song1', this.value)" 
+                   class="volume-slider">
+          </div>
+          <audio id="song1" src="media/contando-ovejas.mp3" preload="metadata"></audio>
+        </div>
+      </div>
+
+      <!-- 29 abril (video) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎤 Primer video cantándote</h3>
+        <span>29/04/2024</span>
+        <p>Con todo mi amor para ti 💕</p>
+        <button onclick="openModal('video-canto')" class="boton">Ver video 🎥</button>
+      </div>
+
+      <!-- 20 mayo (novios) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>💍 Inicio de nuestra historia</h3>
+        <span>20/05/2024</span>
+        <p>Te pedí ser mi novia. Desde ese día: "Jesus + Julissa 4ever <3".</p>
+      </div>
+
+      <!-- 24 mayo -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🧺 Primer picnic juntos</h3>
+        <span>24/05/2024</span>
+        <p>Nuestra primera cita como novios 💖</p>
+      </div>
+
+      <!-- 19 junio (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎉 Tu cumpleaños</h3>
+        <span>19/06/2024</span>
+        <p>Nuestra primera celebración juntos 🥳</p>
+        <button onclick="openModal('bday-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 23 nov (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🚗 Viaje a Quevedo</h3>
+        <span>23/11/2024</span>
+        <p>Primer viaje con tus papás ❤️</p>
+        <button onclick="openModal('viaje-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 2 dic -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎂 Mi cumpleaños</h3>
+        <span>02/12/2024</span>
+        <p>El primero que celebro junto a ti 💕</p>
+      </div>
+
+      <!-- 24 dic (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎄 Primera Navidad</h3>
+        <span>24/12/2024</span>
+        <p>La primera de muchas juntitos 🎁</p>
+        <button onclick="openModal('navidad-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 1 ene (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>✨ Año Nuevo</h3>
+        <span>01/01/2025</span>
+        <p>Aunque distanciados, te sentí muy cerquita 💖</p>
+        <button onclick="openModal('nuevo-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 19 feb (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎓 Tu tesis</h3>
+        <span>19/02/2025</span>
+        <p>Orgulloso de ti siempre 💕</p>
+        <button onclick="openModal('tesis-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 2 mar (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🖊️ Primer viaje solos</h3>
+        <span>02/03/2025</span>
+        <p>Un viaje lleno de amor y risas 💖</p>
+        <button onclick="openModal('playa-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 18 abr (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>❤️ Cirugía</h3>
+        <span>18/04/2025</span>
+        <p>Prometí estar en la salud y enfermedad 💖</p>
+        <button onclick="openModal('cirugia-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 16 may (foto) -->
+      <div class="evento" data-aos="fade-up">
+        <h3>🎉 Graduación</h3>
+        <span>16/05/2025</span>
+        <p>Qué orgullo celebrar tus logros 💕</p>
+        <button onclick="openModal('grad-photo')" class="boton">Ver foto 📸</button>
+      </div>
+
+      <!-- 20 may -->
+      <div class="evento" data-aos="fade-up">
+        <h3>💖 Primer aniversario</h3>
+        <span>20/05/2025</span>
+        <p>Un año lleno de amor, aventuras y recuerdos inolvidables.</p>
+      </div>
+
+      <!-- Futuro -->
+      <div class="evento" data-aos="fade-up">
+        <h3>💞 Nuestra próxima cita</h3>
+        <span>10/10/2025</span>
+        <p>No veo la hora de volver a abrazarte en Cuenca 💕</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modales -->
+  <div id="video-canto" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎤 Primer video cantándote</h3>
+        <button onclick="closeModal('video-canto')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <video src="media/video-cantando.mp4" controls class="media-element"></video>
+      </div>
+    </div>
+  </div>
+
+  <div id="bday-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎉 Tu cumpleaños</h3>
+        <button onclick="closeModal('bday-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/birthday.jpg" class="media-element" alt="Cumpleaños">
+      </div>
+    </div>
+  </div>
+
+  <div id="viaje-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🚗 Viaje a Quevedo</h3>
+        <button onclick="closeModal('viaje-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/viaje.jpg" class="media-element" alt="Viaje a Quevedo">
+      </div>
+    </div>
+  </div>
+
+  <div id="navidad-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎄 Primera Navidad</h3>
+        <button onclick="closeModal('navidad-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/navidad.jpg" class="media-element" alt="Primera Navidad">
+      </div>
+    </div>
+  </div>
+
+  <div id="nuevo-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>✨ Año Nuevo</h3>
+        <button onclick="closeModal('nuevo-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/anio-nuevo.jpg" class="media-element" alt="Año Nuevo">
+      </div>
+    </div>
+  </div>
+
+  <div id="tesis-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎓 Tu tesis</h3>
+        <button onclick="closeModal('tesis-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/tesis.jpg" class="media-element" alt="Tesis">
+      </div>
+    </div>
+  </div>
+
+  <div id="playa-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🖊️ Primer viaje solos</h3>
+        <button onclick="closeModal('playa-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/playa.jpg" class="media-element" alt="Primer viaje solos">
+      </div>
+    </div>
+  </div>
+
+  <div id="cirugia-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>❤️ Cirugía</h3>
+        <button onclick="closeModal('cirugia-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/cirugia.jpg" class="media-element" alt="Cirugía">
+      </div>
+    </div>
+  </div>
+
+  <div id="grad-photo" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🎉 Graduación</h3>
+        <button onclick="closeModal('grad-photo')" class="close-btn">✕</button>
+      </div>
+      <div class="media-container">
+        <img src="media/graduacion.jpg" class="media-element" alt="Graduación">
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center py-10 text-gray-400">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="carta-amor">
+        <h3 class="text-xl font-semibold text-pink-400 mb-4">💕 Para ti, mi amor</h3>
+        <p class="text-sm leading-relaxed text-gray-300">
+          Feliz cumplemes mi amor, no puedo creer que ya sean 1 año 4 meses juntitos y vamos por muchos más. 
+          Triste un poco porque no lo podemos pasar juntitos por la distancia se que pronto lo estaremos y 
+          nuestro amor será tan inmenso que todos van a envidiar nuestro amor jeje. Quiero dejarte saber lo 
+          feliz que me haces cada día aún así estemos lejos, eres la que pasa en mi cabeza 25/8, todo momento 
+          te pienso mi amor y qué feliz es hacerlo. Pronto en nuestro viajecito lo vamos a disfrutar y te 
+          consentiré mucho mi reina, como te lo mereces. Te amo mucho mi vida y jamás dudes del amor que te tengo.
+        </p>
+        <p class="text-pink-400 font-bold mt-4 text-base">Jesus+Julissa 4ever &lt;3</p>
+      </div>
+      <p class="text-xs mt-6 opacity-70">Con amor, para ti ❤️</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>AOS.init({ duration: 1000, once: true });</script>
+
+</body>
+</html>
